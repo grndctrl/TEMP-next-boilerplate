@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  mongo:
+    image: mongo:7.0
+    ports:
+      - "27017:27017"
+    command:
+      - --storageEngine=wiredTiger
+    volumes:
+      # - data:/data/db
+      - ./volumes/mongo/db:/data/db
+      - ./volumes/mongo/dump:/data/dump
+    logging:
+      driver: none
